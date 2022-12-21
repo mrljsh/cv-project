@@ -15,12 +15,22 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write",
+    "lint": "eslint --quiet"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "prettier"
+    ],
+    "rules": {
+      "react/prop-types": 0,
+      "react/react-in-jsx-scope": 0
+    },
+    "plugins": [
+      "jsx-a11y"
     ]
   },
   "browserslist": {
@@ -36,6 +46,10 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.11",
     "prettier": "^2.8.1"
   }
 }
