@@ -1,4 +1,5 @@
 import React from "react";
+import Display from "./components/Display";
 import Form from "./components/Form";
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
     };
   }
 
-  handleFormSubmit = (props) => {
+  handleSubmittedForm = (props) => {
     this.setState({
       firstName: props.firstName,
       lastName: props.lastName,
@@ -32,7 +33,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Form data={this.state} />
+        <Form
+          data={this.state}
+          handleSubmittedForm={this.handleSubmittedForm}
+        />
+        <Display data={this.state} />
       </div>
     );
   }
