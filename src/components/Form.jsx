@@ -72,14 +72,21 @@ class PersonalInfoForm extends Component {
 }
 
 class EducationForm extends Component {
+  newEducationFormJSX = ({ id }) => (
+    <div>
+      <h2>Education #{id + 1}</h2>
+      <label htmlFor="schoolName">
+        School name:
+        <input id="schoolName" name="schoolName" disabled></input>
+      </label>
+    </div>
+  );
+
   render() {
     return (
       <section>
         <h1>Education</h1>
-        <label htmlFor="schoolName">
-          School name:
-          <input id="schoolName" name="schoolName" disabled></input>
-        </label>
+        <this.newEducationFormJSX id={0} />
       </section>
     );
   }
