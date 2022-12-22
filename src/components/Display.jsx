@@ -4,7 +4,11 @@ class Display extends Component {
   render() {
     return (
       <div>
-        <p>{this.props.data.firstName}</p>
+        {Object.entries(this.props.data).map(([key, value]) => (
+          <p key={key}>
+            {key}: {value}
+          </p>
+        ))}
       </div>
     );
   }
