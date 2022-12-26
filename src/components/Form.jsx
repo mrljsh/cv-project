@@ -88,6 +88,9 @@ class EducationForm extends Component {
       sections: [
         {
           schoolName: "",
+          title: "",
+          dateStarted: "",
+          dateFinished: "",
         },
       ],
     };
@@ -102,7 +105,12 @@ class EducationForm extends Component {
   };
 
   handleAddSection = () => {
-    this.setState({ sections: [...this.state.sections, { schoolName: "" }] });
+    this.setState({
+      sections: [
+        ...this.state.sections,
+        { schoolName: "", title: "", dateStarted: "", dateFinished: "" },
+      ],
+    });
   };
 
   newEducationFormJSX = ({ index }) => (
@@ -116,7 +124,39 @@ class EducationForm extends Component {
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
-        ></input>
+        />
+      </label>
+      <label htmlFor="title">
+        Title:
+        <input
+          id="title"
+          name="title"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="dateStarted">
+        Year started:
+        <input
+          id="dateStarted"
+          name="dateStarted"
+          type="number"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="dateFinished">
+        Year finished:
+        <input
+          id="dateFinished"
+          name="dateFinished"
+          type="number"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
       </label>
     </div>
   );
