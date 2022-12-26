@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "../styles/Form.css";
 
 class Form extends Component {
   constructor() {
@@ -55,31 +56,31 @@ class Form extends Component {
 class PersonalInfoForm extends Component {
   render() {
     return (
-      <section>
+      <section className="personal-info full-width">
         <h1>Your Personal Informations</h1>
         <label htmlFor="firstName">
           First name:
-          <input id="firstName" name="firstName"></input>
+          <input id="firstName" name="firstName" type="text"></input>
         </label>
         <label htmlFor="lastName">
           Last name:
-          <input id="lastName" name="lastName"></input>
+          <input id="lastName" name="lastName" type="text"></input>
         </label>
         <label htmlFor="position">
           Your position:
-          <input id="position" name="position"></input>
+          <input id="position" name="position" type="text"></input>
         </label>
         <label htmlFor="mail">
           Mail address:
-          <input id="mail" name="mail"></input>
+          <input id="mail" name="mail" type="email"></input>
         </label>
         <label htmlFor="phone">
           phone number:
-          <input id="phone" name="phone"></input>
+          <input id="phone" name="phone" type="text"></input>
         </label>
         <label htmlFor="address">
           Address:
-          <input id="address" name="address"></input>
+          <input id="address" name="address" type="text"></input>
         </label>
       </section>
     );
@@ -120,23 +121,25 @@ class EducationForm extends Component {
   };
 
   newEducationFormJSX = ({ index }) => (
-    <div>
+    <div className="small-form">
       <h3>Education #{index + 1}</h3>
       <label htmlFor="schoolName">
         School name:
         <input
           id="schoolName"
           name="schoolName"
+          type="text"
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
         />
       </label>
       <label htmlFor="title">
-        Title:
+        Field of study:
         <input
           id="title"
           name="title"
+          type="text"
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
@@ -226,13 +229,14 @@ class Experience extends Component {
   };
 
   newExperienceFormJSX = ({ index }) => (
-    <div>
+    <div className="small-form">
       <h3>Experience #{index + 1}</h3>
       <label htmlFor="companyName">
         Company name:
         <input
           name="companyName"
           id="companyName"
+          type="text"
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
@@ -243,6 +247,7 @@ class Experience extends Component {
         <input
           name="positionName"
           id="positionName"
+          type="text"
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
@@ -253,16 +258,18 @@ class Experience extends Component {
         <input
           name="dateStarted"
           id="dateStarted"
+          type="number"
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
         />
       </label>
-      <label htmlFor="Date finished:">
+      <label htmlFor="dateFinished">
         Date finished:
         <input
-          name="Date finished:"
-          id="Date finished:"
+          name="dateFinished"
+          id="dateFinished"
+          type="number"
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
@@ -274,6 +281,7 @@ class Experience extends Component {
   render() {
     return (
       <section>
+        <h1>Experience</h1>
         {this.state.experience.map((section, index) => (
           <this.newExperienceFormJSX index={index} />
         ))}
