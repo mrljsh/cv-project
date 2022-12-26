@@ -5,6 +5,7 @@ class Form extends Component {
     super();
 
     this.state = {
+      experience: [],
       education: [],
     };
   }
@@ -18,7 +19,7 @@ class Form extends Component {
       mail: formData.get("mail") ?? "",
       phone: formData.get("phone") ?? "",
       address: formData.get("address") ?? "",
-      // experience: formData.get("experience") ?? [],
+      experience: this.state.experience ?? [],
       education: this.state.education ?? [],
     };
     this.props.handleSubmittedForm(obj);
@@ -26,6 +27,10 @@ class Form extends Component {
 
   handleDataFromEducation = (data) => {
     this.setState({ education: data.sections });
+  };
+
+  handleDataFromExperience = (data) => {
+    this.setState({ experience: data.experience });
   };
 
   render() {
@@ -39,6 +44,7 @@ class Form extends Component {
         >
           <PersonalInfoForm />
           <EducationForm getData={this.handleDataFromEducation} />
+          <Experience getData={this.handleDataFromExperience} />
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -167,6 +173,109 @@ class EducationForm extends Component {
         <h1>Education</h1>
         {this.state.sections.map((section, index) => (
           <this.newEducationFormJSX index={index} />
+        ))}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            this.handleAddSection();
+          }}
+        >
+          Add button
+        </button>
+      </section>
+    );
+  }
+}
+
+class Experience extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      experience: [
+        {
+          companyName: "",
+          positionName: "",
+          dateStarted: "",
+          dateFinished: "",
+        },
+      ],
+    };
+  }
+
+  handleChangeInput = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...this.state.experience];
+    list[index][name] = value;
+    this.setState({ experience: list });
+    this.props.getData(this.state);
+  };
+
+  handleAddSection = () => {
+    this.setState({
+      experience: [
+        ...this.state.experience,
+        {
+          companyName: "",
+          positionName: "",
+          dateStarted: "",
+          dateFinished: "",
+        },
+      ],
+    });
+  };
+
+  newExperienceFormJSX = ({ index }) => (
+    <div>
+      <h3>Experience #{index + 1}</h3>
+      <label htmlFor="companyName">
+        Company name:
+        <input
+          name="companyName"
+          id="companyName"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="positionName">
+        Position:
+        <input
+          name="positionName"
+          id="positionName"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="dateStarted">
+        Date started:
+        <input
+          name="dateStarted"
+          id="dateStarted"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="Date finished:">
+        Date finished:
+        <input
+          name="Date finished:"
+          id="Date finished:"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+    </div>
+  );
+
+  render() {
+    return (
+      <section>
+        {this.state.experience.map((section, index) => (
+          <this.newExperienceFormJSX index={index} />
         ))}
         <button
           onClick={(e) => {
