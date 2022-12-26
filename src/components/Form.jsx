@@ -84,7 +84,12 @@ class EducationForm extends Component {
     };
   }
 
-  handleChangeInput = () => {};
+  handleChangeInput = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...this.state.sections];
+    list[index][name] = value;
+    this.setState({ sections: list });
+  };
 
   handleAddSection = () => {
     this.setState({ sections: [...this.state.sections, { schoolName: "" }] });
@@ -95,7 +100,13 @@ class EducationForm extends Component {
       <h3>Education #{index + 1}</h3>
       <label htmlFor="schoolName">
         School name:
-        <input id="schoolName" name="schoolName" disabled></input>
+        <input
+          id="schoolName"
+          name="schoolName"
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        ></input>
       </label>
     </div>
   );
