@@ -1,11 +1,16 @@
 import { Component } from "react";
 
 class Form extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      education: [],
+    };
+  }
+
   handleFormSubmit = (e) => {
     const formData = new FormData(e.target);
-    // const educationObject = {
-    //   schoolName: formData.get("schoolName"),
-    // };
     const obj = {
       firstName: formData.get("firstName") ?? "",
       lastName: formData.get("lastName") ?? "",
@@ -14,9 +19,13 @@ class Form extends Component {
       phone: formData.get("phone") ?? "",
       address: formData.get("address") ?? "",
       // experience: formData.get("experience") ?? [],
-      // education: educationObject ?? [],
+      education: this.state.education ?? [],
     };
     this.props.handleSubmittedForm(obj);
+  };
+
+  handleDataFromEducation = (data) => {
+    this.setState({ education: data.sections });
   };
 
   render() {
@@ -29,7 +38,7 @@ class Form extends Component {
           }}
         >
           <PersonalInfoForm />
-          <EducationForm />
+          <EducationForm getData={this.handleDataFromEducation} />
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -89,6 +98,7 @@ class EducationForm extends Component {
     const list = [...this.state.sections];
     list[index][name] = value;
     this.setState({ sections: list });
+    this.props.getData(this.state);
   };
 
   handleAddSection = () => {
