@@ -72,9 +72,27 @@ class PersonalInfoForm extends Component {
 }
 
 class EducationForm extends Component {
-  newEducationFormJSX = ({ id }) => (
+  constructor() {
+    super();
+
+    this.state = {
+      sections: [
+        {
+          schoolName: "",
+        },
+      ],
+    };
+  }
+
+  handleChangeInput = () => {};
+
+  handleAddSection = () => {
+    this.setState({ sections: [...this.state.sections, { schoolName: "" }] });
+  };
+
+  newEducationFormJSX = ({ index }) => (
     <div>
-      <h2>Education #{id + 1}</h2>
+      <h3>Education #{index + 1}</h3>
       <label htmlFor="schoolName">
         School name:
         <input id="schoolName" name="schoolName" disabled></input>
@@ -86,7 +104,17 @@ class EducationForm extends Component {
     return (
       <section>
         <h1>Education</h1>
-        <this.newEducationFormJSX id={0} />
+        {this.state.sections.map((section, index) => (
+          <this.newEducationFormJSX index={index} />
+        ))}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            this.handleAddSection();
+          }}
+        >
+          Add button
+        </button>
       </section>
     );
   }
