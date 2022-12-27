@@ -1,5 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;800&display=swap');
+
 .cv-container { 
     background-color: white;
     margin: 4px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    padding: 16px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1.full-name {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+h2.position {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.small-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.small-info > * {
+    display: inline-block;
+}
+
+.small-info > p > svg {
+    margin: 0 8px;
 }
