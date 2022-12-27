@@ -6,6 +6,10 @@
     padding: 8px;
 }
 
+.container > div:first-child {
+    margin: 4px;
+}
+
 header {
     background: rgb(1,134,177);
     background: -moz-linear-gradient(217deg, rgba(1,134,177,1) 0%, rgba(60,172,252,1) 35%, rgba(87,181,221,1) 100%);
