@@ -1,6 +1,7 @@
 import React from "react";
 import Display from "./components/Display";
 import Form from "./components/Form";
+import "./styles/App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Form
           data={this.state}
           handleSubmittedForm={this.handleSubmittedForm}

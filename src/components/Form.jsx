@@ -46,7 +46,9 @@ class Form extends Component {
           <PersonalInfoForm />
           <EducationForm getData={this.handleDataFromEducation} />
           <Experience getData={this.handleDataFromExperience} />
-          <button type="submit">Submit</button>
+          <button type="submit" className="full-width">
+            Submit
+          </button>
         </form>
       </div>
     );
@@ -183,7 +185,7 @@ class EducationForm extends Component {
             this.handleAddSection();
           }}
         >
-          Add button
+          Add section
         </button>
       </section>
     );
@@ -291,7 +293,7 @@ class Experience extends Component {
             this.handleAddSection();
           }}
         >
-          Add button
+          Add section
         </button>
       </section>
     );

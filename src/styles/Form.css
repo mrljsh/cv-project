@@ -2,7 +2,6 @@
 form {
     box-sizing: border-box;
     padding: 2rem;
-    border-radius: 1rem;
     background-color: hsl(0, 0%, 100%);
     border: 4px solid hsl(0, 0%, 90%);
     display: grid;
@@ -12,6 +11,14 @@ form {
 
 .full-width {
     grid-column: span 2;
+}
+
+form > button {
+    background-color: #4d7c0f;
+    padding: 1rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    color: white;
 }
 
 legend,
@@ -52,7 +59,7 @@ textarea {
 input[type="number"] {
     display: block;
     box-sizing: border-box;
-    width: 40%;
+    width: 120px;
     padding: 0.5rem 0.75rem;
     font: 1.25rem / 1.5 sans-serif;
 }
@@ -78,4 +85,12 @@ input[type="number"] {
 }
 .small-form > h3 {
     grid-column: span 2;
+}
+
+section > button {
+    background-color: #075985;
+    color: #fff;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin: 24px 0;
 }
