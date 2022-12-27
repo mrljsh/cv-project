@@ -33,12 +33,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <Form
-          data={this.state}
-          handleSubmittedForm={this.handleSubmittedForm}
-        />
-        <Display data={this.state} />
+      <div>
+        <header>
+          <h1>CVMaker</h1>
+        </header>
+        <div className="container">
+          <Form
+            data={this.state}
+            handleSubmittedForm={this.handleSubmittedForm}
+          />
+          <Display data={this.state} />
+        </div>
       </div>
     );
   }

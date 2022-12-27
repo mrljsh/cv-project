@@ -77,7 +77,7 @@ class PersonalInfoForm extends Component {
           <input id="mail" name="mail" type="email"></input>
         </label>
         <label htmlFor="phone">
-          phone number:
+          Phone number:
           <input id="phone" name="phone" type="text"></input>
         </label>
         <label htmlFor="address">

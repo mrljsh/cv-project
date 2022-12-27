@@ -2,4 +2,19 @@
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
+    background-color: #f4f4f5;
+    padding: 8px;
+}
+
+header {
+    background: rgb(1,134,177);
+    background: -moz-linear-gradient(217deg, rgba(1,134,177,1) 0%, rgba(60,172,252,1) 35%, rgba(87,181,221,1) 100%);
+    background: -webkit-linear-gradient(217deg, rgba(1,134,177,1) 0%, rgba(60,172,252,1) 35%, rgba(87,181,221,1) 100%);
+    background: linear-gradient(217deg, rgba(1,134,177,1) 0%, rgba(60,172,252,1) 35%, rgba(87,181,221,1) 100%);
+    padding: 1rem .5rem;
+}
+
+header > h1 {
+    color: white;
+    margin: 0;
 }
