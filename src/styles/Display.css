@@ -31,3 +31,8 @@ h2.position {
 .small-info > p > svg {
     margin: 0 8px;
 }
+
+.cv-container > hr {
+    border: 0;
+    border-top: 1px solid #000;
+}
