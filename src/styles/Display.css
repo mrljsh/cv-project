@@ -37,12 +37,17 @@ h2.position {
     border-top: 1px solid #000;
 }
 
-.education-item {
+.section-item {
     border-left: 1px dotted black;
     margin: 16px;
 }
 
-.education-item > * {
+.section-item > * {
     padding-left: 24px;
     margin: 0;
+}
+
+.section-item > h2 {
+    font-weight: 400;
+    font-size: 1.2rem;
 }
