@@ -36,3 +36,13 @@ h2.position {
     border: 0;
     border-top: 1px solid #000;
 }
+
+.education-item {
+    border-left: 1px dotted black;
+    margin: 16px;
+}
+
+.education-item > * {
+    padding-left: 24px;
+    margin: 0;
+}
