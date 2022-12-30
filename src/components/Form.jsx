@@ -27,13 +27,11 @@ class Form extends Component {
   };
 
   handleDataFromEducation = (data) => {
-    console.log("Triggered handle data from education");
     this.setState({ education: data });
-    console.log(this.state);
   };
 
   handleDataFromExperience = (data) => {
-    this.setState({ experience: data.experience });
+    this.setState({ experience: data });
   };
 
   render() {
@@ -260,7 +258,7 @@ class Experience extends Component {
     const list = [...this.state.experience];
     list[index][name] = value;
     this.setState({ experience: list });
-    this.props.getData(this.state);
+    this.props.getData(this.state.experience);
   };
 
   handleAddSection = () => {
