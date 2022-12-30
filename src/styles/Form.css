@@ -78,7 +78,7 @@ input[type="number"] {
 .small-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: .5rem;
+    gap: .75rem;
 }
 
 .small-form > label:nth-of-type(-n+2) {
@@ -88,10 +88,20 @@ input[type="number"] {
     grid-column: span 2;
 }
 
+.small-form > button {
+    padding: 1rem;
+    background-color:#b91c1c;
+    color: white;
+    font-size: 1rem;
+    border-radius: .5rem;
+    width: fit-content;
+}
+
 section > button {
     background-color: #075985;
     color: #fff;
     padding: 1rem;
     border-radius: .5rem;
     margin: 24px 0;
+    font-size: 1rem;
 }
