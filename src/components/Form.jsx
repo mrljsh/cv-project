@@ -62,27 +62,47 @@ class PersonalInfoForm extends Component {
         <h1>Your Personal Informations</h1>
         <label htmlFor="firstName">
           First name:
-          <input id="firstName" name="firstName" type="text"></input>
+          <input
+            id="firstName"
+            name="firstName"
+            type="text"
+            value="John"
+          ></input>
         </label>
         <label htmlFor="lastName">
           Last name:
-          <input id="lastName" name="lastName" type="text"></input>
+          <input id="lastName" name="lastName" type="text" value="Doe"></input>
         </label>
         <label htmlFor="position">
           Your position:
-          <input id="position" name="position" type="text"></input>
+          <input
+            id="position"
+            name="position"
+            type="text"
+            value="Frontend Developer"
+          ></input>
         </label>
         <label htmlFor="mail">
           Mail address:
-          <input id="mail" name="mail" type="email"></input>
+          <input
+            id="mail"
+            name="mail"
+            type="email"
+            value="john.doe@gmail.com"
+          ></input>
         </label>
         <label htmlFor="phone">
           Phone number:
-          <input id="phone" name="phone" type="text"></input>
+          <input id="phone" name="phone" type="text" value="+1 555 333"></input>
         </label>
         <label htmlFor="address">
           Address:
-          <input id="address" name="address" type="text"></input>
+          <input
+            id="address"
+            name="address"
+            type="text"
+            value="Cleveland, Ohio"
+          ></input>
         </label>
       </section>
     );
