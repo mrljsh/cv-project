@@ -62,47 +62,27 @@ class PersonalInfoForm extends Component {
         <h1>Your Personal Informations</h1>
         <label htmlFor="firstName">
           First name:
-          <input
-            id="firstName"
-            name="firstName"
-            type="text"
-            value="John"
-          ></input>
+          <input id="firstName" name="firstName" type="text"></input>
         </label>
         <label htmlFor="lastName">
           Last name:
-          <input id="lastName" name="lastName" type="text" value="Doe"></input>
+          <input id="lastName" name="lastName" type="text"></input>
         </label>
         <label htmlFor="position">
           Your position:
-          <input
-            id="position"
-            name="position"
-            type="text"
-            value="Frontend Developer"
-          ></input>
+          <input id="position" name="position" type="text"></input>
         </label>
         <label htmlFor="mail">
           Mail address:
-          <input
-            id="mail"
-            name="mail"
-            type="email"
-            value="john.doe@gmail.com"
-          ></input>
+          <input id="mail" name="mail" type="email"></input>
         </label>
         <label htmlFor="phone">
           Phone number:
-          <input id="phone" name="phone" type="text" value="+1 555 333"></input>
+          <input id="phone" name="phone" type="text"></input>
         </label>
         <label htmlFor="address">
           Address:
-          <input
-            id="address"
-            name="address"
-            type="text"
-            value="Cleveland, Ohio"
-          ></input>
+          <input id="address" name="address" type="text"></input>
         </label>
       </section>
     );
@@ -116,10 +96,10 @@ class EducationForm extends Component {
     this.state = {
       sections: [
         {
-          schoolName: "VSAR",
-          title: "Informational technology",
-          dateStarted: "2018",
-          dateFinished: "2023",
+          schoolName: "",
+          title: "",
+          dateStarted: "",
+          dateFinished: "",
         },
       ],
     };
@@ -153,70 +133,74 @@ class EducationForm extends Component {
     });
   };
 
+  EducationFormJSX = ({ index, section }) => (
+    <div className="small-form" key={index}>
+      <h3>Education #{index + 1}</h3>
+      <label htmlFor="schoolName">
+        School name:
+        <input
+          id="schoolName"
+          name="schoolName"
+          type="text"
+          value={section.schoolName}
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="title">
+        Field of study:
+        <input
+          id="title"
+          name="title"
+          type="text"
+          value={section.title}
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="dateStarted">
+        Year started:
+        <input
+          id="dateStarted"
+          name="dateStarted"
+          type="number"
+          value={section.dateStarted}
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <label htmlFor="dateFinished">
+        Year finished:
+        <input
+          id="dateFinished"
+          name="dateFinished"
+          type="number"
+          value={section.dateFinished}
+          onChange={(e) => {
+            this.handleChangeInput(e, index);
+          }}
+        />
+      </label>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          this.removeForm(index);
+        }}
+      >
+        Delete
+      </button>
+    </div>
+  );
+
   render() {
     return (
       <section>
         <h1>Education</h1>
         {this.state.sections.map((section, index) => (
-          <div className="small-form" key={index}>
-            <h3>Education #{index + 1}</h3>
-            <label htmlFor="schoolName">
-              School name:
-              <input
-                id="schoolName"
-                name="schoolName"
-                type="text"
-                value={section.schoolName}
-                onChange={(e) => {
-                  this.handleChangeInput(e, index);
-                }}
-              />
-            </label>
-            <label htmlFor="title">
-              Field of study:
-              <input
-                id="title"
-                name="title"
-                type="text"
-                value={section.title}
-                onChange={(e) => {
-                  this.handleChangeInput(e, index);
-                }}
-              />
-            </label>
-            <label htmlFor="dateStarted">
-              Year started:
-              <input
-                id="dateStarted"
-                name="dateStarted"
-                type="number"
-                value={section.dateStarted}
-                onChange={(e) => {
-                  this.handleChangeInput(e, index);
-                }}
-              />
-            </label>
-            <label htmlFor="dateFinished">
-              Year finished:
-              <input
-                id="dateFinished"
-                name="dateFinished"
-                type="number"
-                value={section.dateFinished}
-                onChange={(e) => {
-                  this.handleChangeInput(e, index);
-                }}
-              />
-            </label>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                this.removeForm(index);
-              }}
-            >
-              Delete
-            </button>
-          </div>
+          <this.EducationFormJSX key={index} index={index} section={section} />
         ))}
         <button
           onClick={(e) => {
