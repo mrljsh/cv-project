@@ -121,12 +121,6 @@ class EducationForm extends Component {
           dateStarted: "2018",
           dateFinished: "2023",
         },
-        {
-          schoolName: "VSAR",
-          title: "Informational technology",
-          dateStarted: "2018",
-          dateFinished: "2023",
-        },
       ],
     };
   }
@@ -253,6 +247,17 @@ class Experience extends Component {
     };
   }
 
+  removeForm = (index) => {
+    this.setState((prevState) => {
+      let experience = [...prevState.experience];
+      experience.splice(index, 1);
+      return { experience };
+    });
+    setTimeout(() => {
+      this.props.getData(this.state.experience);
+    }, 1000);
+  };
+
   handleChangeInput = (e, index) => {
     const { name, value } = e.target;
     const list = [...this.state.experience];
@@ -275,7 +280,7 @@ class Experience extends Component {
     });
   };
 
-  newExperienceFormJSX = ({ index }) => (
+  newExperienceFormJSX = ({ index, data }) => (
     <div className="small-form">
       <h3>Experience #{index + 1}</h3>
       <label htmlFor="companyName">
@@ -284,6 +289,7 @@ class Experience extends Component {
           name="companyName"
           id="companyName"
           type="text"
+          value={data.companyName}
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
@@ -295,6 +301,7 @@ class Experience extends Component {
           name="positionName"
           id="positionName"
           type="text"
+          value={data.positionName}
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
@@ -306,6 +313,7 @@ class Experience extends Component {
           name="dateStarted"
           id="dateStarted"
           type="number"
+          value={data.dateStarted}
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
@@ -317,11 +325,20 @@ class Experience extends Component {
           name="dateFinished"
           id="dateFinished"
           type="number"
+          value={data.dateFinished}
           onChange={(e) => {
             this.handleChangeInput(e, index);
           }}
         />
       </label>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          this.removeForm(index);
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 
@@ -329,8 +346,12 @@ class Experience extends Component {
     return (
       <section>
         <h1>Experience</h1>
-        {this.state.experience.map((section, index) => (
-          <this.newExperienceFormJSX index={index} key={index} />
+        {this.state.experience.map((experience, index) => (
+          <this.newExperienceFormJSX
+            index={index}
+            key={index}
+            data={experience}
+          />
         ))}
         <button
           onClick={(e) => {
