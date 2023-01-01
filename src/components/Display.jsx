@@ -69,8 +69,8 @@ class Display extends Component {
         <div className="cv-container">
           <this.PersonalInfo />
           <hr />
-          <this.EducationData />
-          <this.ExperienceData />
+          {this.props.data.experience.length > 0 && <this.ExperienceData />}
+          {this.props.data.education.length > 0 && <this.EducationData />}
         </div>
       );
     }
