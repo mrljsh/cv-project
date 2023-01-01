@@ -9,6 +9,10 @@ This app is for making simple CV in your browser.
 
 ## To-Do
 
+- Generate PDF
+- Add picture
+- Add bio and more about education / experience
+
 ## Author
 
 - mrljsh
