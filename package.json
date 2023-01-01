@@ -20,7 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write",
-    "lint": "eslint --quiet"
+    "lint": "eslint --quiet",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +54,8 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.11",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.8.1"
-  }
+  },
+  "homepage": "http://mrljsh.github.io/cv-project"
 }
